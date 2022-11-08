@@ -22,6 +22,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue.shade50,
       appBar: AppBar(
         title: Text("Sign In"),
         centerTitle: true,
@@ -95,6 +96,9 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
               TextButton(
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue.shade500 // Text Color
+                    ),
                 onPressed: () async {
                   if (logInKey.currentState!.validate()) {
                     logInKey.currentState!.save();
@@ -108,8 +112,8 @@ class _SignInPageState extends State<SignInPage> {
               ),
               TextButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                ),
+                    backgroundColor: Colors.blue.shade500 // Text Color
+                    ),
                 onPressed: () async {
                   Get.offAllNamed('SignInPage');
                 },

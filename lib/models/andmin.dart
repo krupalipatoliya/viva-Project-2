@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 
 class Admin {
-  RxBool isAdmin;
+  Admin._();
 
-  Admin({required this.isAdmin});
+  static final Admin admin = Admin._();
+
+  RxBool isAdmin = true.obs;
 }

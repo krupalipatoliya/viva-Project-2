@@ -98,9 +98,9 @@ class _AdminHomePageState extends State<AdminHomePage> {
                           Map<String, dynamic> data =
                               e.data() as Map<String, dynamic>;
 
-                          print(e);
-
                           return Card(
+                            elevation: 2,
+                            color: Colors.blue.shade100,
                             child: ListTile(
                               subtitle: Text("Role : ${data['role']}"),
                               title: Text("Name : ${data['name']}"),
@@ -125,13 +125,13 @@ class _AdminHomePageState extends State<AdminHomePage> {
                                         context: context,
                                         builder: (BuildContext context) {
                                           updateSalaryController.text =
-                                              data['salary'].toString();
+                                              data['salary'];
                                           updateRoleController.text =
                                               data['role'];
                                           updateNameController.text =
                                               data['name'];
                                           updateAgeController.text =
-                                              data['age'].toString();
+                                              data['age'];
                                           return AlertDialog(
                                             title: const Text("Fill This"),
                                             actions: [

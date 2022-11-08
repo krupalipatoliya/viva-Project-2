@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../helper/authentication helpper.dart';
 import '../helper/firebase_database.dart';
 
@@ -29,7 +28,7 @@ class _StafHomePageState extends State<StafHomePage> {
     return Scaffold(
       backgroundColor: Colors.lightBlue.shade50,
       appBar: AppBar(
-        title: const Text("All Employees Name"),
+        title: const Text("Staff Page"),
         elevation: 0,
         actions: [
           IconButton(
