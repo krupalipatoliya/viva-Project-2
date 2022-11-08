@@ -1,3 +1,4 @@
+import 'package:employees_app/models/andmin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +12,7 @@ class RoleFinder extends StatefulWidget {
 }
 
 class _RoleFinderState extends State<RoleFinder> {
-  final AdminController c = Get.put(AdminController());
+  AdminController c = Get.put(AdminController());
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +24,7 @@ class _RoleFinderState extends State<RoleFinder> {
       body: Container(
         alignment: Alignment.center,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
               onPressed: () {

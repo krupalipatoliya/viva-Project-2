@@ -17,10 +17,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final AdminController c = Get.find();
+  final AdminController c = Get.put(AdminController());
 
   @override
   Widget build(BuildContext context) {
-    return (c.a1.isAdmin == true) ? AdminHomePage() : StafHomePage();
+    return Obx(() =>
+        (c.a1.isAdmin.value == false) ? const StafHomePage() : const AdminHomePage());
   }
 }

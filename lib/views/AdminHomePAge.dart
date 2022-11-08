@@ -60,9 +60,9 @@ class _AdminHomePageState extends State<AdminHomePage> {
           IconButton(
             onPressed: () {
               FireBaseAuthHelpper.fireBaseAuthHelpper.signOut();
-              Get.offAllNamed('SignInPage');
+              Get.offAllNamed('RoleFinder');
             },
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
           ),
           IconButton(
             onPressed: () {
@@ -70,7 +70,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
                   ? ThemeData.dark()
                   : ThemeData.light());
             },
-            icon: Icon(Icons.light_mode_rounded),
+            icon: const Icon(Icons.light_mode_rounded),
           ),
         ],
       ),

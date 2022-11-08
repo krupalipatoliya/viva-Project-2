@@ -35,7 +35,7 @@ class _StafHomePageState extends State<StafHomePage> {
           IconButton(
             onPressed: () {
               FireBaseAuthHelpper.fireBaseAuthHelpper.signOut();
-              Get.offAllNamed('SignInPage');
+              Get.offAllNamed('RoleFinder');
             },
             icon: Icon(Icons.logout),
           ),
