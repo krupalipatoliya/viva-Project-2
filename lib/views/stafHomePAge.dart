@@ -72,9 +72,9 @@ class _StafHomePageState extends State<StafHomePage> {
                           Map<String, dynamic> data =
                               e.data() as Map<String, dynamic>;
 
-                          print(e);
-
                           return Card(
+                            elevation: 2,
+                            color: Colors.blue.shade100,
                             child: ListTile(
                               subtitle: Text("Role : ${data['role']}"),
                               title: Text("Name : ${data['name']}"),

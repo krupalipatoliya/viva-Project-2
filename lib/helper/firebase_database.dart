@@ -15,15 +15,6 @@ class FireBaseCloudHelpper {
       required int age,
       required int salary}) async {
     CollectionReference users = firestore.collection('Registration');
-    print("add");
-
-    users.add({
-      'name': 'Krupali',
-      'age': 20,
-      'role': 'Admin',
-      'salary': 20000,
-    });
-
     users.doc().set({
       'name': name,
       'age': age,
@@ -31,7 +22,6 @@ class FireBaseCloudHelpper {
       'salary': salary,
     });
 
-    print("add 2");
   }
 
   Stream<QuerySnapshot> fetchAllData() {

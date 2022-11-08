@@ -23,22 +23,27 @@ class _RoleFinderState extends State<RoleFinder> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 30),
+            SizedBox(
+              height: 20,
+            ),
             Container(
-              height: 100,
-              width: 100,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
+              height: 120,
+              width: 120,
+              decoration: BoxDecoration(
+                color: Colors.blue.shade50,
+                shape: BoxShape.circle,
+                image: const DecorationImage(
                   image: NetworkImage(
-                      'https://cdn-icons-png.flaticon.com/128/921/921356.png'),
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtiUUBlBHALRE7FT7Utu331HN4A47hHQt5zQ&usqp=CAU',
+                  ),
                 ),
               ),
             ),
-            const SizedBox(height: 100),
+            const SizedBox(height: 60),
             TextButton(
               style: TextButton.styleFrom(
                   backgroundColor: Colors.blue.shade400 // Text Color
-              ),
+                  ),
               onPressed: () {
                 if (Admin.admin.isAdmin == false) {
                   Admin.admin.isAdmin.value = true;
@@ -52,7 +57,7 @@ class _RoleFinderState extends State<RoleFinder> {
             TextButton(
               style: TextButton.styleFrom(
                   backgroundColor: Colors.blue.shade400 // Text Color
-              ),
+                  ),
               onPressed: () {
                 if (Admin.admin.isAdmin == true) {
                   Admin.admin.isAdmin.value = false;

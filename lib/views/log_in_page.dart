@@ -28,137 +28,140 @@ class _LogINPageState extends State<LogINPage> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: Container(
-        alignment: Alignment.center,
-        child: Column(
-          children: [
-            const SizedBox(height: 30),
-            Container(
-              height: 100,
-              width: 100,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(
-                      'https://cdn-icons-png.flaticon.com/128/921/921356.png'),
+      body: SingleChildScrollView(
+        child: Container(
+          alignment: Alignment.center,
+          child: Column(
+            children: [
+              Container(
+                height: 80,
+                width: 80,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtiUUBlBHALRE7FT7Utu331HN4A47hHQt5zQ&usqp=CAU'),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 100),
-            Form(
-              key: signInKey,
-              child: Container(
-                alignment: Alignment.center,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextFormField(
-                        controller: emailController,
-                        validator: (val) {
-                          if (val!.isEmpty) {
-                            return "Please Enter Email First...";
-                          }
-                          return null;
-                        },
-                        onSaved: (val) {
-                          email = val!;
-                        },
-                        cursorColor: Colors.blueAccent,
-                        decoration: InputDecoration(
-                            border: const OutlineInputBorder(),
-                            focusedBorder: const OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.blueAccent)),
-                            labelText: "Email",
-                            labelStyle: GoogleFonts.poppins(
-                                textStyle:
-                                    const TextStyle(color: Colors.grey))),
+              const SizedBox(height: 100),
+              Form(
+                key: signInKey,
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextFormField(
+                          controller: emailController,
+                          validator: (val) {
+                            if (val!.isEmpty) {
+                              return "Please Enter Email First...";
+                            }
+                            return null;
+                          },
+                          onSaved: (val) {
+                            email = val!;
+                          },
+                          cursorColor: Colors.blueAccent,
+                          decoration: InputDecoration(
+                              border: const OutlineInputBorder(),
+                              focusedBorder: const OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.blueAccent)),
+                              labelText: "Email",
+                              labelStyle: GoogleFonts.poppins(
+                                  textStyle:
+                                      const TextStyle(color: Colors.grey))),
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextFormField(
-                        controller: passController,
-                        validator: (val) {
-                          if (val!.isEmpty) {
-                            return "Please Enter Password First...";
-                          }
-                          return null;
-                        },
-                        onSaved: (val) {
-                          password = val!;
-                        },
-                        cursorColor: Colors.blueAccent,
-                        obscureText: isSecure,
-                        decoration: InputDecoration(
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  isSecure = !isSecure;
-                                });
-                              },
-                              child: const Icon(
-                                Icons.remove_red_eye_rounded,
-                                color: Colors.grey,
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextFormField(
+                          controller: passController,
+                          validator: (val) {
+                            if (val!.isEmpty) {
+                              return "Please Enter Password First...";
+                            }
+                            return null;
+                          },
+                          onSaved: (val) {
+                            password = val!;
+                          },
+                          cursorColor: Colors.blueAccent,
+                          obscureText: isSecure,
+                          decoration: InputDecoration(
+                              suffixIcon: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isSecure = !isSecure;
+                                  });
+                                },
+                                child: const Icon(
+                                  Icons.remove_red_eye_rounded,
+                                  color: Colors.grey,
+                                ),
                               ),
-                            ),
-                            border: const OutlineInputBorder(),
-                            focusedBorder: const OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.blueAccent)),
-                            labelText: "Password",
-                            labelStyle: GoogleFonts.poppins(
-                                textStyle:
-                                    const TextStyle(color: Colors.grey))),
+                              border: const OutlineInputBorder(),
+                              focusedBorder: const OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.blueAccent)),
+                              labelText: "Password",
+                              labelStyle: GoogleFonts.poppins(
+                                  textStyle:
+                                      const TextStyle(color: Colors.grey))),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 50),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                          backgroundColor: Colors.blue.shade500 // Text Color
-                          ),
-                      onPressed: () async {
-                        if (signInKey.currentState!.validate()) {
-                          signInKey.currentState!.save();
-                          await FireBaseAuthHelpper.fireBaseAuthHelpper
-                              .SignIn(emailAddress: email, password: password);
+                      const SizedBox(height: 50),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.blue.shade500 // Text Color
+                            ),
+                        onPressed: () async {
+                          if (signInKey.currentState!.validate()) {
+                            signInKey.currentState!.save();
+                            await FireBaseAuthHelpper.fireBaseAuthHelpper
+                                .SignIn(
+                                    emailAddress: email, password: password);
 
-                          Get.offAllNamed('HomePage');
-                        }
-                      },
-                      child: const Text("Sing UP",
-                          style: TextStyle(color: Colors.white)),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                          backgroundColor: Colors.blue.shade500 // Text Color
-                          ),
-                      onPressed: () {
-                        FireBaseAuthHelpper.fireBaseAuthHelpper
-                            .signInWithGoogle();
-                      },
-                      child: const Text("Sing In with google",
-                          style: TextStyle(color: Colors.white)),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                          backgroundColor: Colors.blue.shade500 // Text Color
-                          ),
-                      onPressed: () {
-                        Get.offAllNamed('SignInPage');
-                      },
-                      child: const Text("Sing In",
-                          style: TextStyle(color: Colors.white)),
-                    ),
-                  ],
+                            Get.offAllNamed('HomePage');
+                          }
+                        },
+                        child: const Text("Sing UP",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.blue.shade500 // Text Color
+                            ),
+                        onPressed: () {
+                          FireBaseAuthHelpper.fireBaseAuthHelpper
+                              .signInWithGoogle();
+                        },
+                        child: const Text("Sing In with google",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.blue.shade500 // Text Color
+                            ),
+                        onPressed: () {
+                          Get.offAllNamed('SignInPage');
+                        },
+                        child: const Text("Sing In",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
